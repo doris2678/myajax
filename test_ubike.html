@@ -50,7 +50,7 @@ $.get("https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json",functi
        let li="";     
 
        events.forEach((event ,idx)=> {            
-             let li="<li>"+event+"</li>";           
+             let li="<li>"+event.sna+"</li>";           
              $("ul").append(li);
        });               
 
