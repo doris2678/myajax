@@ -7,20 +7,20 @@
     <title>Fetch</title>
     <link rel="shortcut icon" href="#" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
- <style>
-       ul li{
-        width:80%;
-        padding:10px;
-        border-radius:5px;
-        border:1px solid #ccc;
-        box-shadow: 1px 1px 10px #aaa;
-        margin:10px;
-       }
-       ul li:hover{
-        width:81%;
-        background-color: lightgrey;
-       }
-    </style>    
+        <style>
+        ul li{
+            width:80%;
+            padding:10px;
+            border-radius:5px;
+            border:1px solid #ccc;
+            box-shadow:1px 1px 10px #aaa;
+            margin:10px;
+        }
+        ul li:hover{
+            width:81%;
+            background-color:lightgreen;
+        }
+    </style>
 </head>
 <body>
     <h1 class="header">Fetch</h1>
@@ -39,9 +39,6 @@
     ********************************************************/
 
     //建立FETCH請求及實質內容
-//建立請求
-//使用表單資料傳送
-
 fetch('https://kktix.com/events.json',{method:'get',headers:{'Content-Type':'application/x-www-form-urlencoded'}})
 .then(function(response){
     
@@ -54,16 +51,19 @@ fetch('https://kktix.com/events.json',{method:'get',headers:{'Content-Type':'app
 })
 .then(function(data){ 
 	
-        console.log(data);      
-        let events=data.entry        
+    console.log(data)
+        //console.log(data);
+        let events=data.entry
         let li="";
         console.log(events);
-        events.forEach((event ,idx)=> {            
-            li=li+"<li>"+event.title+"</li>";           
+        events.forEach((event ,idx)=> {
+            li=li+"<li>"+event.title+"</li>";
+            
         });
-        console.log(li);
-        document.getElementsByTagName('ul')[0].innerHTML=li;    
+        //console.log(li)
+        document.getElementsByTagName('ul')[0].innerHTML=li;
         document.getElementsByClassName('title')[0].innerHTML=data.title
+
 })
 .catch(function(err){
     //error
